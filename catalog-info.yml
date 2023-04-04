@@ -1,0 +1,25 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aquafarm-segmentation
+  title: Aquaculture Pond Segmentation
+  description: Trains a neural network that classifies aquaculture from satellite imagery
+  annotations:
+    backstage.io/techdocs-ref: dir:.
+    github.com/project-slug: thinkingmachines/aquafarm-segmentation
+  links:
+    - url: https://aquafarm-site-selection.web.app/
+      title: Climate Smart Shrimp Web App
+      icon: dashboard
+    - url: https://www.climatechange.ai/blog/2022-06-16-grants-mangrove
+      title: Climate Smart Shrimp Blog Post
+      icon: docs
+  tags:
+    - geo-analytics
+    - web-map
+    - web-app
+    - geo-ai
+spec:
+  type: open-source
+  lifecycle: production
+  owner: user:default/joshuacortez

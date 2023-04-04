@@ -1,0 +1,23 @@
+parent_data_dir: "rollout_grid_bing_zoom16_model_20230309/Full_rollout_buffer0m_20230309"
+
+data_dirs:
+  train_imgs_root: "COG_NICFI_model_tiles"
+  train_masks_root: "COG_NICFI_annotation_masks"
+  # prediction is same as training set for now
+  predict_imgs_root: "COG_NICFI_model_tiles"
+  predict_masks_root: "COG_NICFI_predict_masks"
+
+data_transform_settings:
+  rescale_image_method: "normalize_clip_and_rescale"
+  data_augmentation_transforms: []
+
+random_seed: 1001
+
+dataloader_settings:
+  batch_size: 128
+  num_workers: 4
+
+# the model settings are necessary to normalize the images appropriately
+model_settings:
+  encoder_name: "resnet50"
+  encoder_weights: "imagenet"

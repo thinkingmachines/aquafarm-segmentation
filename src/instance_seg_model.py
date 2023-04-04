@@ -1,0 +1,1 @@
+from .model_utils.mask_rcnn import get_model_instance_segmentation
