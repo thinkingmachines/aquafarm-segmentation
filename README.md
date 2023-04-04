@@ -1,6 +1,6 @@
 <div align="center">
 
-# ❗ [REPLACE ME]  GeoML Python Starter
+# 🦐🐟 Aquafarm Mapping Segmentation
 
 </div>
 
@@ -13,13 +13,27 @@
 
 # 📜 Description
 
-❗ [REPLACE ME]
+❗ This repo contains the neural network model for classifying pond aquaculture into 3 types: intensive, extensive, and abandoned.
 
-Minimal Python starter template for Geo projects. This is pre-configured for installing common geo python libs, such as GDAL, Geopandas, GeoWrangler, etc.
+This project is developed under a [CCAI 2022 grant for scaling out Climate Smart Shrimp in Indonesia and the Philippines](https://www.climatechange.ai/blog/2022-06-16-grants-mangrove).
+<br/>
+<br/>
+
+# 💻 Usage
+## Data Access and Download
 
 <br/>
 <br/>
 
+## Training the model
+
+<br/>
+<br/>
+
+## Rolling out the model
+
+<br/>
+<br/>
 
 # ⚙️ Local Setup for Development
 
@@ -45,16 +59,13 @@ bash Miniconda3-latest-Linux-x86_64.sh
 2. Create a local conda env and activate it. This will create a conda env folder in your project directory.
 ```
 make conda-env
-conda activate <env name in the environment.yml>
+conda activate aquafarm-segmentation
 ```
 
 3. Run the one-time set-up make command.
 ```
 make setup
 ```
-
-## 🐍 Testing
-To run automated tests, simply run `make test`.
 
 ## 📦 Dependencies
 
