@@ -1,15 +1,4 @@
 repos:
-  - repo: https://github.com/mwouts/jupytext
-    rev: v1.13.1  # CURRENT_TAG/COMMIT_HASH
-    hooks:
-    - id: jupytext
-      args: [--from, ipynb, --to, "py:percent", --pipe, black, --pipe, "isort - --profile black"]
-      stages:
-        - commit
-      additional_dependencies:
-        - jupytext
-        - black
-        - isort
   - repo: https://github.com/psf/black
     rev: 22.3.0
     hooks:

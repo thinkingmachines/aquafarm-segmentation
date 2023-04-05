@@ -1,0 +1,47 @@
+parent_data_dir: "nicfi_bing_zoom16"
+
+data_dirs:
+  train_imgs_root: "model_tiles"
+  train_masks_root: "annotation_masks"
+  # prediction is same as training set for now
+  predict_imgs_root: "model_tiles"
+  predict_masks_root: "predict_masks"
+
+data_transform_settings:
+  rescale_image_method: "normalize_clip_and_rescale"
+  data_augmentation_transforms:
+    - "RandomRotate90"
+    - "HorizontalFlip"
+    - "VerticalFlip"
+
+random_seed: 1001
+cloud_cover_lookup_fname: "cloud_cover_lookup.csv"
+
+dataloader_settings:
+  batch_size: 128
+  num_workers: 4
+
+trainer_settings:
+  num_epochs: 19
+  # 32 or 16 bit floating point precision
+  precision: 32
+  train_time_minutes: null
+  loggers:
+    - "CSVLogger"
+    - "WandbLogger"
+  callbacks:
+  - "ModelCheckpoint"
+  - "WandbConfusionMatrix"
+  #- "BackboneFinetuning"
+  #- "WandbSegmentationMasks"
+
+model_settings:
+  segmentation_model: "unet"
+  encoder_name: "resnet50"
+  encoder_weights: "imagenet"
+  loss: "dice"
+  checkpoint_monitor_metric: "val_Dice"
+  checkpoint_monitor_mode: "max"
+  ignore_index: 4
+  learning_rate: 0.0001
+  lr_scheduler: null

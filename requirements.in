@@ -1,13 +1,23 @@
-black
-earthengine-api
-gdal
+albumentations
+black[jupyter]
+gdal==3.5.2
 geopandas
 geowrangler
 jupyterlab
+ipywidgets
 loguru
 numpy
 pandas
 pre-commit
 pytest
 rasterio
-rasterstats
+rio-color
+tqdm
+matplotlib
+pygeos --use-feature=no-binary-enable-wheel-cache
+shapely --use-feature=no-binary-enable-wheel-cache
+lightning
+segmentation-models-pytorch
+wandb
+pyyaml
+folium
