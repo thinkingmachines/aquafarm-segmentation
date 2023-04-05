@@ -625,6 +625,11 @@ class PondDataModule(LightningDataModule):
         # stage is either 'fit', 'validate', 'test', or 'predict'
 
         if stage == "fit":
+            if self.train_imgs_root is None or self.train_masks_root is None:
+                raise ValueError(
+                    "Can't train a model if train_imgs_root is None or train_masks_root is None. Specify the dirs of the training data."
+                )
+
             dataset = PondDataset(
                 imgs_root=self.train_imgs_root,
                 masks_root=self.train_masks_root,
@@ -644,6 +649,11 @@ class PondDataModule(LightningDataModule):
             self.val_dataset = Subset(dataset, val_indices, use_aug_transforms=False)
 
         if stage == "predict":
+            if self.predict_imgs_root is None:
+                raise ValueError(
+                    "Can't train a model if pred_imgs_root is None. Specify the dir of the inference data."
+                )
+
             pred_mask_fname_suffix = "-pred_mask.tif"
             self.predict_dataset = PondDataset(
                 imgs_root=self.predict_imgs_root,

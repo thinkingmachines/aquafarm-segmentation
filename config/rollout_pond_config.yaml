@@ -1,9 +1,6 @@
 parent_data_dir: "rollout_nicfi_bing_zoom16"
 
 data_dirs:
-  train_imgs_root: "model_tiles"
-  train_masks_root: "annotation_masks"
-  # prediction is same as training set for now
   predict_imgs_root: "model_tiles"
   predict_masks_root: "predict_masks"
 

@@ -36,17 +36,24 @@ def _build_dataset_kwargs(
     rescale_image_method = data_transform_settings["rescale_image_method"]
 
     # data augmentations if any
-    augmentors = data_transform_settings.get("data_augmentation_transforms", None)
+    augmentors = data_transform_settings["data_augmentation_transforms"]
 
     # cloud cover related corrections if any
     cloud_cover_lookup_fpath = None
-    cloud_cover_fname = config_dict.get("cloud_cover_lookup_fname", None)
+    cloud_cover_fname = config_dict["cloud_cover_lookup_fname"]
     if cloud_cover_fname is not None:
         cloud_cover_lookup_fpath = data_path / parent_data_dir / cloud_cover_fname
 
+    imgs_root = data_dirs["train_imgs_root"]
+    masks_root = data_dirs["train_masks_root"]
+
+    if imgs_root is None and masks_root is None:
+        imgs_root = data_dirs["predict_imgs_root"]
+        masks_root = data_dirs["predict_masks_root"]
+
     dataset_kwargs = {
-        "imgs_root": data_dirs["train_imgs_root"],
-        "masks_root": data_dirs["train_masks_root"],
+        "imgs_root": imgs_root,
+        "masks_root": masks_root,
         "nn_normalizing_params": nn_normalizing_params,
         "rescale_image_method": rescale_image_method,
         "augmentors": augmentors,
@@ -186,13 +193,35 @@ def _setup_loggers(
     return loggers
 
 
-def _set_training_settings_defaults(config_dict: Dict[str, Any]) -> Dict[str, Any]:
-    if "callbacks" not in config_dict["trainer_settings"]:
-        config_dict["trainer_settings"]["callbacks"] = False
-    if "loggers" not in config_dict["trainer_settings"]:
-        config_dict["trainer_settings"]["loggers"] = []
-    if "precision" not in config_dict["trainer_settings"]:
-        config_dict["trainer_settings"]["precision"] = "32-true"
+def _set_config_defaults(config_dict: Dict[str, Any]) -> Dict[str, Any]:
+
+    # default dataset or datamodule settings
+    if (
+        "data_augmentation_transforms"
+        not in config_dict["data_transform_settings"].keys()
+    ):
+        config_dict["data_transform_settings"]["data_augmentation_transforms"] = None
+    if "cloud_cover_lookup_fname" not in config_dict.keys():
+        config_dict["cloud_cover_lookup_fname"] = None
+
+    root_dir_list = [
+        "train_imgs_root",
+        "train_masks_root",
+        "predict_imgs_root",
+        "predict_masks_root",
+    ]
+    for root_dir in root_dir_list:
+        if root_dir not in config_dict["data_dirs"].keys():
+            config_dict["data_dirs"][root_dir] = None
+
+    # default trainer settings
+    if "trainer_settings" in config_dict.keys():
+        if "callbacks" not in config_dict["trainer_settings"].keys():
+            config_dict["trainer_settings"]["callbacks"] = False
+        if "loggers" not in config_dict["trainer_settings"].keys():
+            config_dict["trainer_settings"]["loggers"] = []
+        if "precision" not in config_dict["trainer_settings"].keys():
+            config_dict["trainer_settings"]["precision"] = "32-true"
 
     return config_dict
 
@@ -209,11 +238,12 @@ def build_kwargs_from_config(
     with open(config_fpath, "r") as stream:
         config_dict = yaml.safe_load(stream)
 
+    config_dict = _set_config_defaults(config_dict)
+
     dataset_kwargs, datamodule_kwargs = _build_dataset_kwargs(config_dict, data_path)
     lightningmodule_kwargs = config_dict["model_settings"]
 
     if "trainer_settings" in config_dict.keys():
-        config_dict = _set_training_settings_defaults(config_dict)
         trainer_kwargs = _build_trainer_kwargs(config_dict, models_path)
     else:
         trainer_kwargs = None
