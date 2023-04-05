@@ -254,35 +254,3 @@ def add_lr_scheduler_config(
         lightningmodule_kwargs["lr_scheduler_config"] = lr_scheduler_config
 
     return lightningmodule_kwargs
-
-
-def __lookup_fix_other_datasets(
-    data_path: Path,
-    config_dict: Dict[str, Any],
-    dataset_kwargs: Dict[str, Any],
-    datamodule_kwargs: Dict[str, Any],
-) -> List[Dict[str, Any]]:
-    parent_data_dir = config_dict["parent_data_dir"]
-
-    # lookup file specific to crop delination
-    data_split_fname = config_dict.get("data_split_fname", None)
-    if data_split_fname is not None:
-        data_split_fpath = data_path / parent_data_dir / data_split_fname
-        dataset_kwargs["data_split_fpath"] = data_split_fpath
-        datamodule_kwargs["data_split_fpath"] = data_split_fpath
-
-    # lookup file specific to oxford pets
-    fnames_paths = config_dict.get("fnames_paths", None)
-    if fnames_paths is not None:
-        train_fnames_fpath = (
-            data_path / parent_data_dir / fnames_paths["train_fnames_fpath"]
-        )
-        predict_fnames_fpath = (
-            data_path / parent_data_dir / fnames_paths["predict_fnames_fpath"]
-        )
-
-        dataset_kwargs["fnames_fpath"] = train_fnames_fpath
-        datamodule_kwargs["train_fnames_fpath"] = train_fnames_fpath
-        datamodule_kwargs["predict_fnames_fpath"] = predict_fnames_fpath
-
-    return dataset_kwargs, datamodule_kwargs
