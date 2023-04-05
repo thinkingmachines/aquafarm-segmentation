@@ -297,6 +297,8 @@ loguru==0.6.0
     # via -r requirements.in
 lxml==4.9.1
     # via nbconvert
+mapclassify==2.5.0
+    # via -r requirements.in
 markdown-it-py==2.2.0
     # via rich
 markupsafe==2.1.1
@@ -352,6 +354,7 @@ nest-asyncio==1.5.5
     #   notebook
 networkx==3.0
     # via
+    #   mapclassify
     #   scikit-image
     #   torch
 nodeenv==1.7.0
@@ -369,6 +372,7 @@ numpy==1.23.3
     #   geowrangler
     #   imageio
     #   lightning
+    #   mapclassify
     #   matplotlib
     #   opencv-python-headless
     #   pandas
@@ -415,6 +419,7 @@ pandas==1.4.4
     #   -r requirements.in
     #   geopandas
     #   geowrangler
+    #   mapclassify
 pandocfilters==1.5.0
     # via nbconvert
 parso==0.8.3
@@ -577,10 +582,12 @@ scikit-image==0.20.0
 scikit-learn==1.1.2
     # via
     #   geowrangler
+    #   mapclassify
     #   qudida
 scipy==1.9.1
     # via
     #   albumentations
+    #   mapclassify
     #   scikit-image
     #   scikit-learn
 segmentation-models-pytorch==0.3.2
