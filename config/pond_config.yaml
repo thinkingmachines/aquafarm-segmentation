@@ -22,7 +22,7 @@ dataloader_settings:
   num_workers: 4
 
 trainer_settings:
-  num_epochs: 19
+  num_epochs: 40
   # 32 or 16 bit floating point precision
   precision: 32
   train_time_minutes: null
