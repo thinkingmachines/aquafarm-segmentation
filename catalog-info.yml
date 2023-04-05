@@ -8,7 +8,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     github.com/project-slug: thinkingmachines/aquafarm-segmentation
   links:
-    - url: https://aquafarm-site-selection.web.app/
+    - url: https://ci-aquafarm-mapping.web.app/
       title: Climate Smart Shrimp Web App
       icon: dashboard
     - url: https://www.climatechange.ai/blog/2022-06-16-grants-mangrove
