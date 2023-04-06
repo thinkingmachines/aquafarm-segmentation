@@ -13,7 +13,7 @@
 
 # 📜 Description
 
-❗ This repo contains the neural network model for classifying pond aquaculture into 3 types: intensive, extensive, and abandoned.
+This repo contains the neural network model for classifying pond aquaculture into 3 types: intensive, extensive, and abandoned.
 
 This project is developed under a [CCAI 2022 grant for scaling out Climate Smart Shrimp in Indonesia and the Philippines](https://www.climatechange.ai/blog/2022-06-16-grants-mangrove).
 <br/>
