@@ -21,16 +21,43 @@ This project is developed under a [CCAI 2022 grant for scaling out Climate Smart
 
 # 💻 Usage
 ## Data Access and Download
+The datasets and model are available [here](https://drive.google.com/drive/folders/1VRnK7vPCWMTSRQOwuDie18zES3EqA27S?usp=share_link)
 
+We've uploaded the model, the training data, and rollout data.
+
+- `model.zip` contains the Pytorch Lightning model checkpoint of the trained model
+- `training_data.zip` contains TIFF files of the training images and raster masks.
+    - It also contains a geopackage (`training_polygons.gpkg`) of the training polygons that were rasterized into masks
+    - A lookup table `cloud_cover.csv` is provided to filter out annotated images in the training set that are covered in clouds based on NICFI satellite imagery.
+- `rollout_data.zip` contains TIFF files of images across Indonesia and the Philippines for aquaculture segmentation.
+    - It also contains a geopackage (`pred_polygons.gpkg`) of the predicted aquaculture polygons.
 <br/>
 <br/>
 
 ## Training the model
+1. Download and unzip the model and training data
+    - Place in the appropriate directories. For contents of `model.zip` in `model`, and the contents of `training_data` in `data`.
+2. Set up the config file `config/pond_config.yaml`
+3. Run the notebooks in the `notebooks` directory in order. These notebooks train a Pytorch Lightning semantic segmentation model based on the data and config.
+    - Inspect the data using the `01` notebooks.
+    - The `02` notebooks are more optional and are meant to assist in determining the learning rate and batch size. There's also a overfitting a batch notebook for model troubleshooting.
+    - Train the model itself using the `03` notebook.
+    - Test model inference on the training data with the `04` notebook.
+    - Visualize the model predictions with the `05` notebook.
+        - Note: If you'll use the NICFI Basemap to visualize, you'll need to sign up for a [NICFI account and get an API key](https://www.planet.com/nicfi/)
 
 <br/>
 <br/>
 
 ## Rolling out the model
+1. Download and unzip the model and training data
+    - Place in the appropriate directories. For contents of `model.zip` in `model`, and the contents of `rollout_data` in `data`.
+2. Set up the config file `config/rollout_pond_config.yaml`
+3. Run the notebooks in the `notebooks_rollout` directory in order.
+    - Inspect the data using the `01` notebook.
+    - Perform model inference using the `02` notebook.
+    - Visualize the model predictions with the `03` notebook.
+        - Note: If you'll use the NICFI Basemap to visualize, you'll need to sign up for a [NICFI account and get an API key](https://www.planet.com/nicfi/)
 
 <br/>
 <br/>
@@ -82,6 +109,6 @@ When you add new python libs, please do the ff:
 
 2. Run `make requirements` to compile a new version of the `requirements.txt` file and update your python env.
 
-3. Commit both the `requirements.in` and `requirements.txt` files so other devs can get the updated list of project requirements.
+3. Commit both the `requirements.in` and `requirements.txt` files.
 
 Note: When you are the one updating your python env to follow library changes from other devs (reflected through an updated `requirements.txt` file), simply run `pip-sync requirements.txt`
