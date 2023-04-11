@@ -36,6 +36,9 @@ We've uploaded the model, the training data, and rollout data.
     - A lookup table `cloud_cover.csv` is provided to filter out annotated images in the training set that are covered in clouds based on NICFI satellite imagery.
 - `rollout_data.zip` contains TIFF files of images across Indonesia and the Philippines for aquaculture segmentation.
     - It also contains a geopackage (`pred_polygons.gpkg`) of the predicted aquaculture polygons.
+
+### :exclamation: Important note:
+The training data includes satellite imagery from Planet Labs Inc under NICFI (Norway’s International Climate and Forests Initiative). Downloading and using this data is subject to the terms of the license [linked here](https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf).
 <br/>
 <br/>
 
