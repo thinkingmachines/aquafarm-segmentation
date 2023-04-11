@@ -43,11 +43,10 @@ We've uploaded the model, the training data, and rollout data.
     - Place in the appropriate directories. For contents of `model.zip` in `model`, and the contents of `training_data` in `data`.
 2. Set up the config file `config/pond_config.yaml`
 3. Run the notebooks in the `notebooks` directory in order. These notebooks train a Pytorch Lightning semantic segmentation model based on the data and config.
-    - Inspect the data using the `01` notebooks.
-    - The `02` notebooks are more optional and are meant to assist in determining the learning rate and batch size. There's also a overfitting a batch notebook for model troubleshooting.
-    - Train the model itself using the `03` notebook.
-    - Test model inference on the training data with the `04` notebook.
-    - Visualize the model predictions with the `05` notebook.
+    - Inspect the data using the `01` notebook.
+    - Train the model itself using the `02` notebook.
+    - Test model inference on the training data with the `03` notebook.
+    - Visualize the model predictions with the `04` notebook.
         - Note: If you'll use the NICFI Basemap to visualize, you'll need to sign up for a [NICFI account and get an API key](https://www.planet.com/nicfi/)
 
 <br/>
