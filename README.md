@@ -18,6 +18,7 @@ This repo contains the segmentation model for classifying aquaculture into 3 typ
 This project is developed under a [CCAI 2022 grant for scaling out Climate Smart Shrimp in Indonesia and the Philippines](https://www.climatechange.ai/blog/2022-06-16-grants-mangrove).
 
 Example model predictions in Indonesia below. Blue polygons are intensive ponds, and green polygons are extensive ponds.
+
 ![sample model predictions in Indonesia](assets/sample_model_predictions.png)
 
 <br/>
