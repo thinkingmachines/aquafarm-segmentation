@@ -10,7 +10,6 @@
 <br/>
 <br/>
 
-
 # 📜 Description
 
 This repo contains the segmentation model for classifying aquaculture into 3 types: intensive, extensive, and abandoned.
@@ -20,6 +19,21 @@ This project is developed under a [CCAI 2022 grant for scaling out Climate Smart
 Example model predictions in Indonesia below. Blue polygons are intensive ponds, and green polygons are extensive ponds.
 
 ![sample model predictions in Indonesia](assets/sample_model_predictions.png)
+
+<br/>
+<br/>
+
+# 🗺️ Climate Smart Shrimp Tool
+The main output of the project is a [web map](https://ci-aquafarm-mapping.web.app/) of Indonesia and the Philippines showing the suitability of aquaculture sites according to a site suitability criteria for Conservation International’s (CI) Climate Smart Shrimp program.
+
+![climate smart shrimp tool screenshot](assets/css_tool_screenshot.jpg)
+
+The classified aquaculture dataset is a key component of the site suitability criteria.
+- Extensive ponds are good candidates for the CSS program because extensive ponds can be intensified sustainably.
+- Abandoned ponds are good candidates because they can be sites for mangrove restoration.
+- While intensive ponds themselves are not suitable for CSS, having intensive ponds nearby is an indicator that the area is amenable to intensification.
+
+The underlying data behind the web map is available [here](https://drive.google.com/drive/folders/1Ws0Y9vZ-SHV3Gdtmlm1jTk774GfyaGG-?usp=share_link). These include other criteria that were derived from open datasets.
 
 <br/>
 <br/>
@@ -38,7 +52,7 @@ We've uploaded the model, the training data, and rollout data.
     - It also contains a geopackage (`pred_polygons.gpkg`) of the predicted aquaculture polygons.
 
 ### :exclamation: Important note:
-The training data includes satellite imagery from Planet Labs Inc under NICFI (Norway’s International Climate and Forests Initiative). Downloading and using this data is subject to the terms of the license [linked here](https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf).
+The training data includes satellite imagery from Planet Labs Inc under NICFI (Norway’s International Climate and Forests Initiative). Therefore, downloading and using the training data, the model, or the rollout data is subject to the terms of the license [linked here](https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf). The license's main requirement is attribution.
 <br/>
 <br/>
 
