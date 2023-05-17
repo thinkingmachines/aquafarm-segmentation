@@ -133,3 +133,10 @@ When you add new python libs, please do the ff:
 3. Commit both the `requirements.in` and `requirements.txt` files.
 
 Note: When you are the one updating your python env to follow library changes from other devs (reflected through an updated `requirements.txt` file), simply run `pip-sync requirements.txt`
+
+## Acknowledgements
+
+This project was funded by the Climate Change AI Innovation Grants
+program, hosted by Climate Change AI with the support of the Quadrature
+Climate Foundation, Schmidt Futures, and the Canada Hub of Future
+Earth.
