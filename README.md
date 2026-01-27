@@ -33,14 +33,12 @@ The classified aquaculture dataset is a key component of the site suitability cr
 - Abandoned ponds are good candidates because they can be sites for mangrove restoration.
 - While intensive ponds themselves are not suitable for CSS, having intensive ponds nearby is an indicator that the area is amenable to intensification.
 
-The underlying data behind the web map is available [here](https://drive.google.com/drive/folders/1Ws0Y9vZ-SHV3Gdtmlm1jTk774GfyaGG-?usp=share_link). These include other criteria that were derived from open datasets.
-
 <br/>
 <br/>
 
 # 💻 Usage
 ## Data Access and Download
-The datasets and model are available [here](https://drive.google.com/drive/folders/1VRnK7vPCWMTSRQOwuDie18zES3EqA27S?usp=share_link)
+The datasets and model are available [here on Zenodo](https://zenodo.org/records/7802444)
 
 We've uploaded the model, the training data, and rollout data.
 
@@ -53,6 +51,12 @@ We've uploaded the model, the training data, and rollout data.
 
 ### :exclamation: Important note:
 The training data includes satellite imagery from Planet Labs Inc under NICFI (Norway’s International Climate and Forests Initiative). Therefore, downloading and using the training data, the model, or the rollout data is subject to the terms of the license [linked here](https://assets.planet.com/docs/Planet_ParticipantLicenseAgreement_NICFI.pdf). The license's main requirement is attribution.
+
+### Site Suitability Criteria
+The Zenodo upload also contains the underlying data behind the site suitability criteria for Climate Smart Shrimp. 
+
+- `idn_site_scoring_datasets` for Indonesian criteria
+- `phl_site_scoring_datasets` for Philippine criteria
 <br/>
 <br/>
 
